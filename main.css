@@ -1,0 +1,70 @@
+body {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+
+.header-div {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 1px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid black;
+    height: 12vh;
+}
+
+.title {
+    width: 70%;
+    padding: 0px 10px;
+    display: inline-block;
+}
+
+.info {
+    width: 30%;
+    text-align: center;
+}
+
+.info__circle {
+    border: 1px solid black;
+    display: inline-block;
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+}
+
+.info__circle:hover,
+.info__circle:active {
+    background-color: black;
+    color: white;
+}
+
+.sub-two {
+    height: 73vh;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid black;
+    box-sizing: border-box;
+}
+
+.sub-two div {
+    padding: 20px 0px;
+}
+
+.form_sub_one{
+    font-family: "Lato", sans-serif;
+}
+
+.mid-two {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:15vh
+}
