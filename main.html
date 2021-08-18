@@ -12,6 +12,7 @@
             href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
             rel="stylesheet"
         />
+        <script src="./main.js" defer></script>
     </head>
     <body>
         <div class="header-div">
@@ -21,31 +22,38 @@
             <div class="info">
                 <button class="info__circle">i</button>
             </div>
+            <div class="toggle_info">
+                <p>
+                    Just enter the name of you food <br />
+                    select the type of food <br />
+                    and route to another page to pick you food from your list
+                </p>
+            </div>
         </div>
         <div class="sub-two">
             <form>
                 <div class="form_sub_one">
-                    <label for="foodName">Food name</label><br />
-                    <input type="text" id="foodName" name="foodName" placeholder="name of the food"/><br />
-                </div>
-                <div>
-                    <label for="type of fodd">Food type</label>
-                    <select>
-                        <option value="default">--Select food type--</option>
-                        <option value="Breakfast">Breakfast</option>
-                        <option value="Lunch">Lunch</option>
-                        <option value="Snack">Snack</option>
-                        <option value="Dinner">Dinner</option>
-                    </select>
-                </div>
-                <div>
-                    <input type="submit" value="Add to my list !" />
+                    <div><label>Add this food to your list</label></div>
+                    <div><input name="food" type="text" /></div>
+                    <div>
+                        <select id="select-opt">
+                            <option value="default">
+                                --Select food type--
+                            </option>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Snack">Snack</option>
+                            <option value="Dinner">Dinner</option>
+                        </select>
+                    </div>
+
+                    <input type="submit" />
                 </div>
             </form>
         </div>
         <div class="mid-two">
             <div>
-                <button >Pick my food !</button>
+                <ul id="list"></ul>
             </div>
         </div>
     </body>
