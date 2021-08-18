@@ -6,9 +6,12 @@ body {
     background-color: #88bdbc;
 }
 
-label{
+label {
     font-family: "Lato", sans-serif;
+}
 
+p{
+    font-size: 10px
 }
 
 .header-div {
@@ -44,15 +47,34 @@ label{
     width: 18px;
 }
 
-.info__circle:hover,
+.info__circle_visible {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+/* .info__circle:hover,
 .info__circle:active {
     background-color: black;
     color: white;
-}
+} */
 
-.toggle_info{
+.toggle_info {
     display: none;
 }
+
+.toggle_info_visible {
+    display: flex;
+}
+
+.toggle_div{
+    display: flex;
+    flex-direction:column ;
+}
+
+/* .toggle_info.visible{
+    
+} */
 
 .sub-two {
     height: 73vh;
@@ -70,7 +92,7 @@ label{
     padding: 20px 0px;
 }
 
-.form_sub_one{
+.form_sub_one {
     font-family: "Lato", sans-serif;
 }
 
@@ -78,8 +100,8 @@ label{
     display: flex;
     align-items: center;
     justify-content: center;
-    height:15vh;
-    position:fixed;
+    height: 15vh;
+    position: fixed;
     width: 100%;
     z-index: 101;
     left: 0;

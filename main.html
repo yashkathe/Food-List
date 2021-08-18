@@ -19,15 +19,17 @@
             <div class="title">
                 <h4>Food picker</h4>
             </div>
-            <div class="info">
-                <button class="info__circle">i</button>
-            </div>
-            <div class="toggle_info">
-                <p>
-                    Just enter the name of you food <br />
-                    select the type of food <br />
-                    and route to another page to pick you food from your list
-                </p>
+            <div class="toggle_div">
+                <div class="info">
+                    <button class="info__circle info__circle_visible" id="info_btn">i</button>
+                </div>
+                <div class="toggle_info" id="info_para">
+                    <p>
+                        Just enter the name of you food <br />
+                        select the type of food <br />
+                        and route to another page to pick you food from your list
+                    </p>
+                </div>
             </div>
         </div>
         <div class="sub-two">
@@ -53,7 +55,16 @@
         </div>
         <div class="mid-two">
             <div>
-                <ul id="list"></ul>
+                <ul id="breakFastLi"></ul>
+            </div>
+            <div>
+                <ul id="lunchLi"></ul>
+            </div>
+            <div>
+                <ul id="snackLi"></ul>
+            </div>
+            <div>
+                <ul id="dinnerLi"></ul>
             </div>
         </div>
     </body>
