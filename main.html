@@ -21,19 +21,25 @@
             </div>
             <div class="toggle_div">
                 <div class="info">
-                    <button class="info__circle info__circle_visible" id="info_btn">i</button>
+                    <button
+                        class="info__circle info__circle_visible"
+                        id="info_btn"
+                    >
+                        i
+                    </button>
                 </div>
                 <div class="toggle_info" id="info_para">
                     <p>
                         Just enter the name of you food <br />
                         select the type of food <br />
-                        and route to another page to pick you food from your list
+                        and route to another page to pick you food from your
+                        list
                     </p>
                 </div>
             </div>
         </div>
         <div class="sub-two">
-            <form>
+            <form id="form1" autocomplete="off">
                 <div class="form_sub_one">
                     <div><label>Add this food to your list</label></div>
                     <div><input name="food" type="text" /></div>
@@ -48,23 +54,41 @@
                             <option value="Dinner">Dinner</option>
                         </select>
                     </div>
-
-                    <input type="submit" />
+                    <div>
+                        <input type="submit" />
+                    </div>
                 </div>
+            </form>
+        </div>
+        <div class="form_sub_two">
+            <form id="form2" class="form2">
+                <div>
+                    <select id="select-opt2">
+                        <option value="default">--Display list--</option>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Snack">Snack</option>
+                        <option value="Dinner">Dinner</option>
+                    </select>
+                </div>
+                <!-- <div>
+                    <label>Load list !</label>
+                </div> -->
+                <div><input type="submit" value="Load List !" /></div>
             </form>
         </div>
         <div class="mid-two">
             <div>
-                <ul id="breakFastLi"></ul>
+                <ul id="breakFastLi" class="breakFastLi"></ul>
             </div>
             <div>
-                <ul id="lunchLi"></ul>
+                <ul id="lunchLi" class="lunchLi"></ul>
             </div>
             <div>
-                <ul id="snackLi"></ul>
+                <ul id="snackLi" class="snackLi"></ul>
             </div>
             <div>
-                <ul id="dinnerLi"></ul>
+                <ul id="dinnerLi" class="dinnerLi"></ul>
             </div>
         </div>
     </body>
