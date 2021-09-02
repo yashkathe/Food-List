@@ -1,63 +1,62 @@
+/* overwriting default styles  */
 body {
-    font-family: "Lato", sans-serif;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #88bdbc;
+    background-color: rgba(111, 179, 184, 0.5);
 }
 
-label {
-    font-family: "Lato", sans-serif;
-}
-
-p{
-    font-size: 10px
-}
-
-ul{
+ul {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
 }
 
+/* background */
+/* .background{
+    background: url("./spices.jpg") center/cover;
+    filter: grayscale(40%);
+    filter: blur(2px);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -10;
+} */
+
+/* header styles */
+
 .header-div {
     display: flex;
     flex-direction: row;
-    box-sizing: border-box;
-    padding: 1px;
     align-items: center;
     justify-content: center;
     border-bottom: 2px solid black;
-    height: 12vh;
     position: fixed;
+    top: 0;
     width: 100%;
-    z-index: 100;
+    height: 75px;
+    z-index: 10;
+    background-color: rgb(56, 128, 135);
+    color: rgb(255, 255, 240);
+    font-size: 18px;
 }
 
 .title {
-    width: 70%;
+    width: 60%;
     padding: 0px 10px;
-    display: inline-block;
-}
-
-.info {
-    width: 30%;
-    text-align: center;
+    font-family: "Merriweather", serif;
 }
 
 .info__circle {
-    border: 1px solid black;
+    border: 1px solid rgb(250, 249, 246);
     display: inline-block;
     border-radius: 50%;
-    height: 18px;
-    width: 18px;
+    height: auto;
 }
 
 .info__circle_visible {
     background-color: black;
-    color: white;
-    border: 1px solid white;
+    color: rgb(250, 249, 246);
+    border: 1px solid rgb(250, 249, 246);
 }
 
 /* .info__circle:hover,
@@ -68,38 +67,62 @@ ul{
 
 .toggle_info {
     display: none;
+    position: fixed;
+    bottom: 0;
+    color: rgb(255, 255, 240);
+    background-color: #a9927d;
+    padding: 14px 10px;
+    width: auto;
+    height: auto;
+    margin-block-end:0;
+    margin-block-start:0;
+    border-bottom: 2px solid black;
+    /* font-family: "Noto Sans JP", sans-serif; */
 }
 
 .toggle_info_visible {
-    display: flex;
+    display: block;
 }
 
-.toggle_div{
+.toggle_div {
     display: flex;
-    flex-direction:column ;
+    flex-direction: column;
 }
 
 /* .toggle_info.visible{
     
 } */
 
+/* form with adds items to list */
+
 .sub-two {
-    height: 73vh;
     display: flex;
     flex-direction: column;
-    padding: 10px 30px;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    padding: 50px 0px;
     border-bottom: 2px solid black;
-    height: 500px;
+    margin-top: 80px;
 }
 
 .sub-two div {
-    padding: 20px 0px;
+    padding: 12px 0px;
 }
 
 .form_sub_one {
-    font-family: "Lato", sans-serif;
+    font-family: "Noto Sans JP", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_sub_one div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .mid-two {
@@ -110,47 +133,58 @@ ul{
     width: 100%;
 }
 
-.form2{
+/* display list items form */
+
+.form2 {
     display: flex;
-    flex-direction:column ;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding:70px 100px;
+    width: 100%;
+    padding: 50px 0px;
     border-bottom: 2px solid black;
+    font-family: "Noto Sans JP", sans-serif;
+
 }
 
-.form2 div{
+.form2 div {
     padding: 6px 0px;
 }
 
-.breakFastLi{
+.breakFastLi {
     display: none;
 }
 
-.breakFastLi_visible{
+.breakFastLi_visible {
     display: flex;
 }
 
-.lunchLi{
+.lunchLi {
     display: none;
 }
 
-.lunchLi_visible{
+.lunchLi_visible {
     display: flex;
 }
 
-.snackLi{
+.snackLi {
     display: none;
 }
 
-.snackLi_visible{
+.snackLi_visible {
     display: flex;
 }
 
-.dinnerLi{
+.dinnerLi {
     display: none;
 }
 
-.dinnerLi_visible{
+.dinnerLi_visible {
     display: flex;
+}
+
+/* delete button  */
+
+.delete-button {
+    height: 10px;
 }

@@ -8,36 +8,38 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link rel="stylesheet" href="main.css" />
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap");
+        </style>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap"
             rel="stylesheet"
         />
+
         <script src="./main.js" defer></script>
     </head>
     <body>
+        <!-- background  -->
+        <div class="background">
+
+        </div>
+        <!-- header for this page  -->
         <div class="header-div">
             <div class="title">
                 <h4>Food picker</h4>
             </div>
             <div class="toggle_div">
-                <div class="info">
-                    <button
-                        class="info__circle info__circle_visible"
-                        id="info_btn"
-                    >
-                        i
-                    </button>
-                </div>
-                <div class="toggle_info" id="info_para">
-                    <p>
-                        Just enter the name of you food <br />
-                        select the type of food <br />
-                        and route to another page to pick you food from your
-                        list
-                    </p>
-                </div>
+                <button class="info__circle" id="info_btn">i</button>
             </div>
         </div>
+        <!-- toggle info  -->
+        <p class="toggle_info" id="info_para">
+            Just enter the name of you food select the type of food and route to
+            another page to pick you food from your list
+        </p>
+        <!-- form 1 to add items to out list  -->
         <div class="sub-two">
             <form id="form1" autocomplete="off">
                 <div class="form_sub_one">
@@ -60,8 +62,12 @@
                 </div>
             </form>
         </div>
+        <!-- form 2 to load items from our lists breakFastLi -->
         <div class="form_sub_two">
             <form id="form2" class="form2">
+                <div>
+                    Check your food list !
+                </div>
                 <div>
                     <select id="select-opt2">
                         <option value="default">--Display list--</option>
@@ -71,9 +77,6 @@
                         <option value="Dinner">Dinner</option>
                     </select>
                 </div>
-                <!-- <div>
-                    <label>Load list !</label>
-                </div> -->
                 <div><input type="submit" value="Load List !" /></div>
             </form>
         </div>
