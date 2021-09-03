@@ -45,10 +45,10 @@
                 <div class="form_sub_one">
                     <div><label>Add this food to your list</label></div>
                     <div><input name="food" type="text" /></div>
-                    <div>
-                        <select id="select-opt">
+                    <div class="select">
+                        <select id="select-opt" class="drop-down">
                             <option value="default">
-                                --Select food type--
+                                - Select food type -
                             </option>
                             <option value="Breakfast">Breakfast</option>
                             <option value="Lunch">Lunch</option>
@@ -57,7 +57,7 @@
                         </select>
                     </div>
                     <div>
-                        <input type="submit" />
+                        <button type="submit" class="submit_button">add</button>
                     </div>
                 </div>
             </form>
@@ -68,16 +68,16 @@
                 <div>
                     Check your food list !
                 </div>
-                <div>
-                    <select id="select-opt2">
-                        <option value="default">--Display list--</option>
+                <div class="select">
+                    <select id="select-opt2" class="drop-down">
+                        <option value="default">- Display list -</option>
                         <option value="Breakfast">Breakfast</option>
                         <option value="Lunch">Lunch</option>
                         <option value="Snack">Snack</option>
                         <option value="Dinner">Dinner</option>
                     </select>
                 </div>
-                <div><input type="submit" value="Load List !" /></div>
+                <div><button type="submit" value="Load List !" class="submit_button">display</button></div>
             </form>
         </div>
         <div class="mid-two">
