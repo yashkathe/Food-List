@@ -1,5 +1,3 @@
 # Food List
 
-This is a basic web app made with html css and javascript where you have to enter a 
-list of food items you want to make and then the web app will randomly suggest you
-different food items you have stored
+This is a basic web app made with html css and javascript. In this webApp you can store food items you are going to make categoricallyand then display that list conditionally according to the food category you chose.
