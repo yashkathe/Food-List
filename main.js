@@ -27,15 +27,20 @@ const dinnerList = [];
 
 //getting all the stored items in local storage
 
-breakFastLiLocal = JSON.parse(localStorage.getItem('breakfastList'))
-lunchLiLocal=JSON.parse(localStorage.getItem('lunchList'))
-snackLiLocal=JSON.parse(localStorage.getItem('snackList'))
-dinnerLiLocal=JSON.parse(localStorage.getItem('dinnerList'))
+// breakFastLiLocal = JSON.parse(localStorage.getItem("breakfastList"));
+// lunchLiLocal = JSON.parse(localStorage.getItem("lunchList"));
+// snackLiLocal = JSON.parse(localStorage.getItem("snackList"));
+// dinnerLiLocal = JSON.parse(localStorage.getItem("dinnerList"));
+
+//create delete button
+const DeleteButton = document.createElement("button");
+DeleteButton.classList.add("delete-button");
 
 //checking for empty fields
 function errorCheck() {
     if (nameOfFood.value.trim() === "") {
-        throw new Error('Dont leave the field empty')
+        console.log("Dont leave the field empty");
+        return;
     }
 }
 
@@ -52,6 +57,45 @@ function clearInput() {
     typeOfFood.value = "default";
 }
 
+//loop through already stored food in local storage and save them
+// function loopThroughLocalStorage() {
+//     for (i in breakFastLiLocal) {
+//         breakfastName = breakFastLiLocal[i].name;
+//         const li = document.createElement("li");
+//         li.innerHTML = breakfastName;
+//         const child = breakFastLi.appendChild(li);
+//         child.appendChild(DeleteButton);
+//     }
+
+//     for (i in lunchLiLocal) {
+//         lunchName = lunchLiLocal[i].name;
+//         const li = document.createElement("li");
+//         li.innerHTML = lunchName;
+//         const child = breakFastLi.appendChild(li);
+//         child.append(DeleteButton);
+//     }
+
+//     for (i in snackLiLocal) {
+//         snackName = snackLiLocal[i].name;
+//         const li = document.createElement("li");
+//         li.innerHTML = snackName;
+//         const child = breakFastLi.appendChild(li);
+//         child.append(DeleteButton);
+//     }
+
+//     for (i in dinnerLiLocal) {
+//         dinnerName = dinnerLiLocal[i].name;
+//         const li = document.createElement("li");
+//         li.innerHTML = dinnerName;
+//         const child = breakFastLi.appendChild(li);
+//         child.append(DeleteButton);
+//     }
+// }
+
+// loopThroughLocalStorage();
+
+// console.log(breakfastList);
+
 //this function will fire up upon form submission
 form1.onsubmit = (event) => {
     event.preventDefault();
@@ -61,12 +105,11 @@ form1.onsubmit = (event) => {
     // console.log(items)
     // console.log(items2)
 
-    //creating a newfood object 
+    //creating a newfood object
 
     errorCheck();
 
-    const DeleteButton = document.createElement('button')
-    DeleteButton.textContent = 'delete'
+    // DeleteButton.textContent = 'delete'
 
     const newFood = {
         name: nameOfFood.value,
@@ -74,59 +117,108 @@ form1.onsubmit = (event) => {
         id: Math.random(),
     };
     // conditionally entering values
-    
+    const li = document.createElement("li");
+    const button = document.createElement("button");
+
     if (typeOfFood.value === "Breakfast") {
         breakfastList.push(newFood);
-        localStorage.setItem("breakfastList", JSON.stringify(breakfastList));
-        const li = document.createElement("li");
-        li.innerHTML = newFood.name
-        const child = breakFastLi.appendChild(li);
-        child.appendChild(DeleteButton)
+        li.innerHTML = newFood.name;
+        li.classList.add('innerList')
+        button.innerHTML = "delete";
+        li.appendChild(button);
+        breakFastLi.appendChild(li);
+        console.log(breakfastList);
     } else if (typeOfFood.value === "Lunch") {
         lunchList.push(newFood);
-        localStorage.setItem("lunchList", JSON.stringify(lunchList));
-        const li = document.createElement("li");
         li.innerHTML = newFood.name;
-        const child = lunchLi.appendChild(li);
-        child.appendChild(DeleteButton)
+        button.innerHTML = "delete";
+        li.appendChild(button);
+        breakFastLi.appendChild(li)
+        lunchLi.appendChild(li);
+        console.log(lunchList);
     } else if (typeOfFood.value === "Snack") {
         snackList.push(newFood);
-        localStorage.setItem("snackList", JSON.stringify(snackList));
-        const li = document.createElement("li");
         li.innerHTML = newFood.name;
-        const child = snackLi.appendChild(li);
-        child.appendChild(DeleteButton)
+        button.innerHTML = "delete";
+        li.appendChild(button);
+        breakFastLi.appendChild(li)
+        snackLi.appendChild(li);
+        console.log(snackList);
     } else if (typeOfFood.value === "Dinner") {
         dinnerList.push(newFood);
-        localStorage.setItem("dinnerList", JSON.stringify(dinnerList));
-        const li = document.createElement("li");
         li.innerHTML = newFood.name;
-        const child = dinnerLi.appendChild(li);
-        child.appendChild(DeleteButton)
+        button.innerHTML = "delete";
+        li.appendChild(button);
+        breakFastLi.appendChild(li)
+        dinnerLi.appendChild(li);
+        console.log(dinnerList);
     } else {
         alert("enter a food type");
     }
 
-
     clearInput();
 };
 
+//delete function handler
 
+// function deleteFoodItemHandler(event) {
+//     breakFastLi.addEventListener("click", (event) => {
+//         const toDeleteElement = event.target.closest("li");
+//         toDeleteElement.remove();
+//         console.log(toDeleteElement.textContent);
+//         // console.log(typeOfFood2.value)
+//         console.log(breakfastList[0].name);
+//         // console.log(breakfastList[0].name)
 
-//delete function handler 
+//         //delete using splice
 
-function deleteFoodItemHandler(event){
-    breakFastLi.addEventListener('click', event=>{
-        const toDeleteElement = event.target.closest('li')
-        toDeleteElement.remove()
-        console.log(toDeleteElement.textContent)
-        // const len = breakfastList.length
-        // breakfastList.splice(0,1,to
-        // console.log(len)
-    })
-} 
+//         for (let i in breakFastLiLocal) {
+//             if (breakFastLiLocal[i].name == toDeleteElement.textContent) {
+//                 breakFastLiLocal.splice(i, 1);
+//                 console.log(breakfastList);
+//                 // localStorage.removeItem(
+//                 //     "breakfastList",
+//                 //     JSON.stringify(breakFastLiLocal)
+//                 // );
+//             }
+//         }
 
-deleteFoodItemHandler()
+//         for (let i in lunchLiLocal) {
+//             if (lunchLiLocal[i].name == toDeleteElement.textContent) {
+//                 lunchLiLocal.splice(i, 1);
+//                 console.log(breakfastList);
+//                 // localStorage.removeItem(
+//                 //     "breakfastList",
+//                 //     JSON.stringify(breakFastLiLocal)
+//                 // );
+//             }
+//         }
+
+//         for (let i in breakFastLiLocal) {
+//             if (breakFastLiLocal[i].name == toDeleteElement.textContent) {
+//                 breakFastLiLocal.splice(i, 1);
+//                 console.log(breakfastList);
+//                 // localStorage.removeItem(
+//                 //     "breakfastList",
+//                 //     JSON.stringify(breakFastLiLocal)
+//                 // );
+//             }
+//         }
+
+//         for (let i in breakFastLiLocal) {
+//             if (breakFastLiLocal[i].name == toDeleteElement.textContent) {
+//                 breakFastLiLocal.splice(i, 1);
+//                 console.log(breakfastList);
+//                 // localStorage.removeItem(
+//                 //     "breakfastList",
+//                 //     JSON.stringify(breakFastLiLocal)
+//                 // );
+//             }
+//         }
+//     });
+// }
+
+// deleteFoodItemHandler();
 
 //toggling the info button
 
@@ -155,22 +247,22 @@ function clearInput2() {
 form2.onsubmit = (event) => {
     event.preventDefault();
 
-    if (typeOfFood2.value === "Breakfast" && breakfastList.length >= 1) {
+    if (typeOfFood2.value === "Breakfast") {
         breakFastLi.classList.add("breakFastLi_visible");
         lunchLi.classList.remove("lunchLi_visible");
         snackLi.classList.remove("snackLi_visible");
         dinnerLi.classList.remove("dinnerLi_visible");
-    } else if (typeOfFood2.value === "Lunch" && lunchList.length >= 1) {
+    } else if (typeOfFood2.value === "Lunch") {
         lunchLi.classList.add("lunchLi_visible");
         breakFastLi.classList.remove("breakFastLi_visible");
         snackLi.classList.remove("snackLi_visible");
         dinnerLi.classList.remove("dinnerLi_visible");
-    } else if (typeOfFood2.value === "Snack" && snackList.length >= 1) {
+    } else if (typeOfFood2.value === "Snack") {
         snackLi.classList.add("snackLi_visible");
         dinnerLi.classList.remove("dinnerLi_visible");
         breakFastLi.classList.remove("breakFastLi_visible");
         lunchLi.classList.remove("lunchLi_visible");
-    } else if (typeOfFood2.value === "Dinner" && dinnerList.length >= 1) {
+    } else if (typeOfFood2.value === "Dinner") {
         dinnerLi.classList.add("dinnerLi_visible");
         breakFastLi.classList.remove("breakFastLi_visible");
         lunchLi.classList.remove("lunchLi_visible");
