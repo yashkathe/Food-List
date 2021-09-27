@@ -26,11 +26,18 @@ let snackList = [];
 let dinnerList = [];
 
 //setting empty arrays in local storage
-localStorage.setItem("breakfastList", JSON.stringify(breakfastList));
-localStorage.setItem("lunchList", JSON.stringify(lunchList));
-localStorage.setItem("snackList", JSON.stringify(snackList));
-localStorage.setItem("dinnerList", JSON.stringify(dinnerList));
-
+if (localStorage.getItem("breakfastList") === null) {
+    localStorage.setItem("breakfastList", JSON.stringify(breakfastList));
+}
+if (localStorage.getItem("lunchLIst") === null) {
+    localStorage.setItem("lunchList", JSON.stringify(lunchList));
+}
+if (localStorage.getItem("snackLost") === null) {
+    localStorage.setItem("snackList", JSON.stringify(snackList));
+}
+if (localStorage.getItem("dinnerList") === null) {
+    localStorage.setItem("dinnerList", JSON.stringify(dinnerList));
+}
 
 //getting all the stored items in local storage
 
@@ -39,6 +46,7 @@ lunchLiLocal = JSON.parse(localStorage.getItem("lunchList"));
 snackLiLocal = JSON.parse(localStorage.getItem("snackList"));
 dinnerLiLocal = JSON.parse(localStorage.getItem("dinnerList"));
 
+//copying locally stored array in nornaml array
 breakfastList = [...breakFastLiLocal];
 lunchList = [...lunchLiLocal];
 snackList = [...snackLiLocal];
@@ -47,7 +55,6 @@ dinnerList = [...dinnerLiLocal];
 //loop through already stored food in local storage and save them
 
 function loopThroughLocalStorage() {
-
     for (i = 0; i < breakfastList.length; i++) {
         const li = document.createElement("li");
         const button = document.createElement("button");
@@ -110,17 +117,6 @@ function loopThroughLocalStorage() {
 }
 
 loopThroughLocalStorage();
-
-//create delete button
-const DeleteButton = document.createElement("button");
-DeleteButton.classList.add("delete-button");
-
-//creating a new list item to display
-function addElement(foodName, listname) {
-    const li = document.createElement("li");
-    li.innerHTML = foodName;
-    // listname.appendChild(li)
-}
 
 //clear user input on form submission
 function clearInput() {
