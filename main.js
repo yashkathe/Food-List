@@ -36,14 +36,6 @@ const dinnerList = [];
 const DeleteButton = document.createElement("button");
 DeleteButton.classList.add("delete-button");
 
-//checking for empty fields
-function errorCheck() {
-    if (nameOfFood.value.trim() === "") {
-        alert("Dont leave the field empty");
-        return;
-    }
-}
-
 //creating a new list item to display
 function addElement(foodName, listname) {
     const li = document.createElement("li");
@@ -100,25 +92,24 @@ function clearInput() {
 form1.onsubmit = (event) => {
     event.preventDefault();
 
-    // items.push(nameOfFood.value)
-    // items2.push(typeOfFood.value)
-    // console.log(items)
-    // console.log(items2)
+    //checking for empty fields
+    if (nameOfFood.value.trim() === "") {
+        alert("Dont leave the field empty");
+        return;
+    }
 
-    //creating a newfood object
-
-    errorCheck();
-
-    // DeleteButton.textContent = 'delete'
+    //create food object
 
     const newFood = {
         name: nameOfFood.value,
         type: typeOfFood.value,
         id: Math.random(),
     };
+
     // conditionally entering values
     const li = document.createElement("li");
     const button = document.createElement("button");
+    button.id = "delete_button";
     li.classList.add("innerList");
 
     if (typeOfFood.value === "Breakfast") {
@@ -161,7 +152,8 @@ form1.onsubmit = (event) => {
 
 //delete function handler
 
-function deleteFoodItemHandler(event) {
+function deleteFoodItemHandler() {
+
     breakFastLi.addEventListener("click", (event) => {
         const toDeleteElement = event.target.closest("li");
         toDeleteElement.remove();
