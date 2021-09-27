@@ -20,17 +20,96 @@ const info_para = document.getElementById("info_para");
 
 //empty arrays
 
-const breakfastList = [];
-const lunchList = [];
-const snackList = [];
-const dinnerList = [];
+let breakfastList = [];
+let lunchList = [];
+let snackList = [];
+let dinnerList = [];
+
+//setting empty arrays in local storage
+localStorage.setItem("breakfastList", JSON.stringify(breakfastList));
+localStorage.setItem("lunchList", JSON.stringify(lunchList));
+localStorage.setItem("snackList", JSON.stringify(snackList));
+localStorage.setItem("dinnerList", JSON.stringify(dinnerList));
+
 
 //getting all the stored items in local storage
 
-// breakFastLiLocal = JSON.parse(localStorage.getItem("breakfastList"));
-// lunchLiLocal = JSON.parse(localStorage.getItem("lunchList"));
-// snackLiLocal = JSON.parse(localStorage.getItem("snackList"));
-// dinnerLiLocal = JSON.parse(localStorage.getItem("dinnerList"));
+breakFastLiLocal = JSON.parse(localStorage.getItem("breakfastList"));
+lunchLiLocal = JSON.parse(localStorage.getItem("lunchList"));
+snackLiLocal = JSON.parse(localStorage.getItem("snackList"));
+dinnerLiLocal = JSON.parse(localStorage.getItem("dinnerList"));
+
+breakfastList = [...breakFastLiLocal];
+lunchList = [...lunchLiLocal];
+snackList = [...snackLiLocal];
+dinnerList = [...dinnerLiLocal];
+
+//loop through already stored food in local storage and save them
+
+function loopThroughLocalStorage() {
+
+    for (i = 0; i < breakfastList.length; i++) {
+        const li = document.createElement("li");
+        const button = document.createElement("button");
+        button.id = "delete_button";
+        li.classList.add("innerList");
+        breakfastName = breakfastList[i].name;
+        for (j in breakfastList) {
+            breakFastLi.appendChild(li);
+            li.innerHTML = breakfastName;
+            li.appendChild(button);
+            // console.log(li)
+            button.innerHTML = "delete";
+        }
+    }
+
+    for (i = 0; i < lunchList.length; i++) {
+        const li = document.createElement("li");
+        const button = document.createElement("button");
+        button.id = "delete_button";
+        li.classList.add("innerList");
+        lunchName = lunchList[i].name;
+        for (j in lunchList) {
+            lunchLi.appendChild(li);
+            li.innerHTML = lunchName;
+            li.appendChild(button);
+            // console.log(li)
+            button.innerHTML = "delete";
+        }
+    }
+
+    for (i = 0; i < snackList.length; i++) {
+        const li = document.createElement("li");
+        const button = document.createElement("button");
+        button.id = "delete_button";
+        li.classList.add("innerList");
+        snackName = snackList[i].name;
+        for (j in snackList) {
+            snackLi.appendChild(li);
+            li.innerHTML = snackName;
+            li.appendChild(button);
+            // console.log(li)
+            button.innerHTML = "delete";
+        }
+    }
+
+    for (i = 0; i < dinnerList.length; i++) {
+        const li = document.createElement("li");
+        const button = document.createElement("button");
+        button.id = "delete_button";
+        li.classList.add("innerList");
+        dinnerName = dinnerList[i].name;
+        for (j in dinnerList) {
+            dinnerLi.appendChild(li);
+            li.innerHTML = dinnerName;
+            li.appendChild(button);
+            // console.log(li)
+            button.innerHTML = "delete";
+        }
+    }
+}
+
+loopThroughLocalStorage();
 
 //create delete button
 const DeleteButton = document.createElement("button");
@@ -48,45 +127,6 @@ function clearInput() {
     nameOfFood.value = "";
     typeOfFood.value = "default";
 }
-
-//loop through already stored food in local storage and save them
-// function loopThroughLocalStorage() {
-//     for (i in breakFastLiLocal) {
-//         breakfastName = breakFastLiLocal[i].name;
-//         const li = document.createElement("li");
-//         li.innerHTML = breakfastName;
-//         const child = breakFastLi.appendChild(li);
-//         child.appendChild(DeleteButton);
-//     }
-
-//     for (i in lunchLiLocal) {
-//         lunchName = lunchLiLocal[i].name;
-//         const li = document.createElement("li");
-//         li.innerHTML = lunchName;
-//         const child = breakFastLi.appendChild(li);
-//         child.append(DeleteButton);
-//     }
-
-//     for (i in snackLiLocal) {
-//         snackName = snackLiLocal[i].name;
-//         const li = document.createElement("li");
-//         li.innerHTML = snackName;
-//         const child = breakFastLi.appendChild(li);
-//         child.append(DeleteButton);
-//     }
-
-//     for (i in dinnerLiLocal) {
-//         dinnerName = dinnerLiLocal[i].name;
-//         const li = document.createElement("li");
-//         li.innerHTML = dinnerName;
-//         const child = breakFastLi.appendChild(li);
-//         child.append(DeleteButton);
-//     }
-// }
-
-// loopThroughLocalStorage();
-
-// console.log(breakfastList);
 
 //this function will fire up upon form submission
 form1.onsubmit = (event) => {
