@@ -39,7 +39,7 @@ DeleteButton.classList.add("delete-button");
 //checking for empty fields
 function errorCheck() {
     if (nameOfFood.value.trim() === "") {
-        console.log("Dont leave the field empty");
+        alert("Dont leave the field empty");
         return;
     }
 }
@@ -119,37 +119,37 @@ form1.onsubmit = (event) => {
     // conditionally entering values
     const li = document.createElement("li");
     const button = document.createElement("button");
+    li.classList.add("innerList");
 
     if (typeOfFood.value === "Breakfast") {
         breakfastList.push(newFood);
         li.innerHTML = newFood.name;
-        li.classList.add('innerList')
-        button.innerHTML = "delete";
         li.appendChild(button);
+        button.innerHTML = "delete";
         breakFastLi.appendChild(li);
         console.log(breakfastList);
     } else if (typeOfFood.value === "Lunch") {
         lunchList.push(newFood);
         li.innerHTML = newFood.name;
-        button.innerHTML = "delete";
         li.appendChild(button);
-        breakFastLi.appendChild(li)
+        button.innerHTML = "delete";
+        breakFastLi.appendChild(li);
         lunchLi.appendChild(li);
         console.log(lunchList);
     } else if (typeOfFood.value === "Snack") {
         snackList.push(newFood);
         li.innerHTML = newFood.name;
-        button.innerHTML = "delete";
         li.appendChild(button);
-        breakFastLi.appendChild(li)
+        button.innerHTML = "delete";
+        breakFastLi.appendChild(li);
         snackLi.appendChild(li);
         console.log(snackList);
     } else if (typeOfFood.value === "Dinner") {
         dinnerList.push(newFood);
         li.innerHTML = newFood.name;
-        button.innerHTML = "delete";
         li.appendChild(button);
-        breakFastLi.appendChild(li)
+        button.innerHTML = "delete";
+        breakFastLi.appendChild(li);
         dinnerLi.appendChild(li);
         console.log(dinnerList);
     } else {
@@ -161,64 +161,83 @@ form1.onsubmit = (event) => {
 
 //delete function handler
 
-// function deleteFoodItemHandler(event) {
-//     breakFastLi.addEventListener("click", (event) => {
-//         const toDeleteElement = event.target.closest("li");
-//         toDeleteElement.remove();
-//         console.log(toDeleteElement.textContent);
-//         // console.log(typeOfFood2.value)
-//         console.log(breakfastList[0].name);
-//         // console.log(breakfastList[0].name)
+function deleteFoodItemHandler(event) {
+    breakFastLi.addEventListener("click", (event) => {
+        const toDeleteElement = event.target.closest("li");
+        toDeleteElement.remove();
+        console.log(toDeleteElement.textContent);
+        // console.log(typeOfFood2.value)
+        // console.log(breakfastList[0].name)
+        for (let i in breakfastList) {
+            if (
+                `${breakfastList[i].name}delete` == toDeleteElement.textContent
+            ) {
+                breakfastList.splice(i, 1);
+                console.log(breakfastList);
+                // localStorage.removeItem(
+                //     "breakfastList",
+                //     JSON.stringify(breakFastLiLocal)
+                // );
+            }
+        }
+    });
 
-//         //delete using splice
+    lunchLi.addEventListener("click", (event) => {
+        const toDeleteElement = event.target.closest("li");
+        toDeleteElement.remove();
+        console.log(toDeleteElement.textContent);
+        // console.log(typeOfFood2.value)
+        // console.log(breakfastList[0].name)
+        for (let i in lunchList) {
+            if (`${lunchList[i].name}delete` == toDeleteElement.textContent) {
+                lunchList.splice(i, 1);
+                console.log(lunchList);
+                // localStorage.removeItem(
+                //     "breakfastList",
+                //     JSON.stringify(breakFastLiLocal)
+                // );
+            }
+        }
+    });
 
-//         for (let i in breakFastLiLocal) {
-//             if (breakFastLiLocal[i].name == toDeleteElement.textContent) {
-//                 breakFastLiLocal.splice(i, 1);
-//                 console.log(breakfastList);
-//                 // localStorage.removeItem(
-//                 //     "breakfastList",
-//                 //     JSON.stringify(breakFastLiLocal)
-//                 // );
-//             }
-//         }
+    snackLi.addEventListener("click", (event) => {
+        const toDeleteElement = event.target.closest("li");
+        toDeleteElement.remove();
+        console.log(toDeleteElement.textContent);
+        // console.log(typeOfFood2.value)
+        // console.log(breakfastList[0].name)
+        for (let i in snackList) {
+            if (`${snackList[i].name}delete` == toDeleteElement.textContent) {
+                snackList.splice(i, 1);
+                console.log(snackList);
+                // localStorage.removeItem(
+                //     "breakfastList",
+                //     JSON.stringify(breakFastLiLocal)
+                // );
+            }
+        }
+    });
 
-//         for (let i in lunchLiLocal) {
-//             if (lunchLiLocal[i].name == toDeleteElement.textContent) {
-//                 lunchLiLocal.splice(i, 1);
-//                 console.log(breakfastList);
-//                 // localStorage.removeItem(
-//                 //     "breakfastList",
-//                 //     JSON.stringify(breakFastLiLocal)
-//                 // );
-//             }
-//         }
+    dinnerLi.addEventListener("click", (event) => {
+        const toDeleteElement = event.target.closest("li");
+        toDeleteElement.remove();
+        console.log(toDeleteElement.textContent);
+        // console.log(typeOfFood2.value)
+        // console.log(breakfastList[0].name)
+        for (let i in dinnerList) {
+            if (`${dinnerList[i].name}delete` == toDeleteElement.textContent) {
+                dinnerList.splice(i, 1);
+                console.log(dinnerList);
+                // localStorage.removeItem(
+                //     "breakfastList",
+                //     JSON.stringify(breakFastLiLocal)
+                // );
+            }
+        }
+    });
+}
 
-//         for (let i in breakFastLiLocal) {
-//             if (breakFastLiLocal[i].name == toDeleteElement.textContent) {
-//                 breakFastLiLocal.splice(i, 1);
-//                 console.log(breakfastList);
-//                 // localStorage.removeItem(
-//                 //     "breakfastList",
-//                 //     JSON.stringify(breakFastLiLocal)
-//                 // );
-//             }
-//         }
-
-//         for (let i in breakFastLiLocal) {
-//             if (breakFastLiLocal[i].name == toDeleteElement.textContent) {
-//                 breakFastLiLocal.splice(i, 1);
-//                 console.log(breakfastList);
-//                 // localStorage.removeItem(
-//                 //     "breakfastList",
-//                 //     JSON.stringify(breakFastLiLocal)
-//                 // );
-//             }
-//         }
-//     });
-// }
-
-// deleteFoodItemHandler();
+deleteFoodItemHandler();
 
 //toggling the info button
 
