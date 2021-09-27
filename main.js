@@ -119,6 +119,8 @@ form1.onsubmit = (event) => {
         button.innerHTML = "delete";
         breakFastLi.appendChild(li);
         console.log(breakfastList);
+        //store in local storage
+        localStorage.setItem("breakfastList", JSON.stringify(breakfastList));
     } else if (typeOfFood.value === "Lunch") {
         lunchList.push(newFood);
         li.innerHTML = newFood.name;
@@ -127,6 +129,8 @@ form1.onsubmit = (event) => {
         breakFastLi.appendChild(li);
         lunchLi.appendChild(li);
         console.log(lunchList);
+        //store in local storage
+        localStorage.setItem("lunchList", JSON.stringify(lunchList));
     } else if (typeOfFood.value === "Snack") {
         snackList.push(newFood);
         li.innerHTML = newFood.name;
@@ -135,6 +139,8 @@ form1.onsubmit = (event) => {
         breakFastLi.appendChild(li);
         snackLi.appendChild(li);
         console.log(snackList);
+        //store in local storage
+        localStorage.setItem("snackList", JSON.stringify(snackList));
     } else if (typeOfFood.value === "Dinner") {
         dinnerList.push(newFood);
         li.innerHTML = newFood.name;
@@ -143,6 +149,8 @@ form1.onsubmit = (event) => {
         breakFastLi.appendChild(li);
         dinnerLi.appendChild(li);
         console.log(dinnerList);
+        //store in local storage
+        localStorage.setItem("dinnerList", JSON.stringify(dinnerList));
     } else {
         alert("enter a food type");
     }
@@ -153,7 +161,6 @@ form1.onsubmit = (event) => {
 //delete function handler
 
 function deleteFoodItemHandler() {
-
     breakFastLi.addEventListener("click", (event) => {
         const toDeleteElement = event.target.closest("li");
         toDeleteElement.remove();
@@ -165,6 +172,11 @@ function deleteFoodItemHandler() {
                 `${breakfastList[i].name}delete` == toDeleteElement.textContent
             ) {
                 breakfastList.splice(i, 1);
+                //rewrite local storage
+                localStorage.setItem(
+                    "breakfastList",
+                    JSON.stringify(breakfastList)
+                );
                 console.log(breakfastList);
                 // localStorage.removeItem(
                 //     "breakfastList",
@@ -183,6 +195,8 @@ function deleteFoodItemHandler() {
         for (let i in lunchList) {
             if (`${lunchList[i].name}delete` == toDeleteElement.textContent) {
                 lunchList.splice(i, 1);
+                //rewrite local storage
+                localStorage.setItem("lunchList", JSON.stringify(lunchList));
                 console.log(lunchList);
                 // localStorage.removeItem(
                 //     "breakfastList",
@@ -201,6 +215,8 @@ function deleteFoodItemHandler() {
         for (let i in snackList) {
             if (`${snackList[i].name}delete` == toDeleteElement.textContent) {
                 snackList.splice(i, 1);
+                //rewrite local storage
+                localStorage.setItem("snackList", JSON.stringify(snackList));
                 console.log(snackList);
                 // localStorage.removeItem(
                 //     "breakfastList",
@@ -219,6 +235,8 @@ function deleteFoodItemHandler() {
         for (let i in dinnerList) {
             if (`${dinnerList[i].name}delete` == toDeleteElement.textContent) {
                 dinnerList.splice(i, 1);
+                //rewrite local storage
+                localStorage.setItem("dinnerList", JSON.stringify(dinnerList));
                 console.log(dinnerList);
                 // localStorage.removeItem(
                 //     "breakfastList",
