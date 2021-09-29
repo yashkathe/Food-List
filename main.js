@@ -19,30 +19,30 @@ const info_btn = document.getElementById("info_btn");
 const info_para = document.getElementById("info_para");
 
 //getting backdrop and modal and its modal button
-const backdrop = document.getElementById('backdrop')
-const closeButton = document.getElementById('close_btn')
-const modal1 = document.getElementById('modal1')
-const errorMsg = document.getElementById('error_msg')
-const modalHeader = document.getElementById('modal_header')
+const backdrop = document.getElementById("backdrop");
+const closeButton = document.getElementById("close_btn");
+const modal1 = document.getElementById("modal1");
+const errorMsg = document.getElementById("error_msg");
+const modalHeader = document.getElementById("modal_header");
 
 //error modal function
-function popModal(title , message){
-    modalHeader.textContent = title
-    errorMsg.textContent = message
-    backdrop.classList.toggle('backdrop__visible')
-    modal1.classList.toggle('modal1__visible')
+function popModal(title, message) {
+    modalHeader.textContent = title;
+    errorMsg.textContent = message;
+    backdrop.classList.toggle("backdrop__visible");
+    modal1.classList.toggle("modal1__visible");
 }
 
-//close modal 
-closeButton.addEventListener('click', () => {
-    modal1.classList.toggle('modal1__visible')
-    backdrop.classList.toggle('backdrop__visible')
-})
+//close modal
+closeButton.addEventListener("click", () => {
+    modal1.classList.toggle("modal1__visible");
+    backdrop.classList.toggle("backdrop__visible");
+});
 
-backdrop.addEventListener('click', () => {
-    modal1.classList.toggle('modal1__visible')
-    backdrop.classList.toggle('backdrop__visible')
-})
+backdrop.addEventListener("click", () => {
+    modal1.classList.toggle("modal1__visible");
+    backdrop.classList.toggle("backdrop__visible");
+});
 
 //empty arrays
 
@@ -156,7 +156,7 @@ form1.onsubmit = (event) => {
 
     //checking for empty fields
     if (nameOfFood.value.trim() === "") {
-        popModal('Error !',`Don't leave the field empty`)
+        popModal("Error !", `Don't leave the field empty`);
         return;
     }
 
@@ -214,7 +214,7 @@ form1.onsubmit = (event) => {
         //store in local storage
         localStorage.setItem("dinnerList", JSON.stringify(dinnerList));
     } else {
-        popModal('Error !',`Don't forget to enter the type of food`)
+        popModal("Error !", `Don't forget to enter the type of food`);
     }
 
     clearInput();
@@ -320,32 +320,61 @@ function clearInput2() {
 //rendering lists conditionally
 form2.onsubmit = (event) => {
     event.preventDefault();
+
+    function removeAllStyles(){
+        breakFastLi.classList.remove("breakFastLi_visible");
+        lunchLi.classList.remove("lunchLi_visible");
+        snackLi.classList.remove("snackLi_visible");
+        dinnerLi.classList.remove("dinnerLi_visible");
+    }
+
     if (typeOfFood2.value === "Breakfast") {
-        breakFastLi.classList.add("breakFastLi_visible");
-        lunchLi.classList.remove("lunchLi_visible");
-        snackLi.classList.remove("snackLi_visible");
-        dinnerLi.classList.remove("dinnerLi_visible");
+        if (breakfastList.length === 0) {
+            popModal("Error !", `Your Breakfast List is empty`);
+            removeAllStyles()
+            return;
+        } else {
+            breakFastLi.classList.add("breakFastLi_visible");
+            lunchLi.classList.remove("lunchLi_visible");
+            snackLi.classList.remove("snackLi_visible");
+            dinnerLi.classList.remove("dinnerLi_visible");
+        }
     } else if (typeOfFood2.value === "Lunch") {
-        lunchLi.classList.add("lunchLi_visible");
-        breakFastLi.classList.remove("breakFastLi_visible");
-        snackLi.classList.remove("snackLi_visible");
-        dinnerLi.classList.remove("dinnerLi_visible");
+        if (lunchList.length === 0) {
+            popModal("Error !", `Your Lunch List is empty`);
+            removeAllStyles()
+            return;
+        } else {
+            lunchLi.classList.add("lunchLi_visible");
+            breakFastLi.classList.remove("breakFastLi_visible");
+            snackLi.classList.remove("snackLi_visible");
+            dinnerLi.classList.remove("dinnerLi_visible");
+        }
     } else if (typeOfFood2.value === "Snack") {
-        snackLi.classList.add("snackLi_visible");
-        dinnerLi.classList.remove("dinnerLi_visible");
-        breakFastLi.classList.remove("breakFastLi_visible");
-        lunchLi.classList.remove("lunchLi_visible");
+        if (snackList.length === 0) {
+            popModal("Error !", `Your Snack List is empty`);
+            removeAllStyles()
+            return;
+        } else {
+            snackLi.classList.add("snackLi_visible");
+            dinnerLi.classList.remove("dinnerLi_visible");
+            breakFastLi.classList.remove("breakFastLi_visible");
+            lunchLi.classList.remove("lunchLi_visible");
+        }
     } else if (typeOfFood2.value === "Dinner") {
-        dinnerLi.classList.add("dinnerLi_visible");
-        breakFastLi.classList.remove("breakFastLi_visible");
-        lunchLi.classList.remove("lunchLi_visible");
-        snackLi.classList.remove("snackLi_visible");
+        if (dinnerList.length === 0) {
+            popModal("Error !", `Your Dinner List is empty`);
+            removeAllStyles()
+            return;
+        } else {
+            dinnerLi.classList.add("dinnerLi_visible");
+            breakFastLi.classList.remove("breakFastLi_visible");
+            lunchLi.classList.remove("lunchLi_visible");
+            snackLi.classList.remove("snackLi_visible");
+        }
     } else if (typeOfFood2.value === "default") {
-        popModal('Error !',`Cant load list , enter food type`)
-        breakFastLi.classList.remove("breakFastLi_visible");
-        lunchLi.classList.remove("lunchLi_visible");
-        snackLi.classList.remove("snackLi_visible");
-        dinnerLi.classList.remove("dinnerLi_visible");
+        popModal("Error !", `Cant load list , enter food type`);
+        removeAllStyles()
     } else {
         alert("You food list is empty");
     }
