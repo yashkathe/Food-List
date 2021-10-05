@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!-- head (all the links) -->
+
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,42 +19,75 @@
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap"
             rel="stylesheet"
         />
-
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+            rel="stylesheet"
+        />
         <script src="./main.js" defer></script>
     </head>
+
+    <!-- main body starts from here  -->
+
     <body>
         <!-- background  -->
 
-        <div class="background"></div>
-
         <!-- header for this page  -->
-
-        <div class="header-div">
-            <div class="title">
-                <h4>Food picker</h4>
+        <div class="wrap_div">
+            <div class="header-div">
+                <div class="title">
+                    <h4>Food picker</h4>
+                </div>
+                <div class="toggle_div">
+                    <button class="info__circle" id="info_btn">i</button>
+                </div>
             </div>
-            <div class="toggle_div">
-                <button class="info__circle" id="info_btn">i</button>
+            <!-- toggle info  -->
+            <p class="toggle_info" id="info_para">
+                Just enter the name of you food select the type of food and
+                route to another page to pick you food from your list
+            </p>
+
+            <!-- form 1 to add items to out list  -->
+
+            <div class="sub-two">
+                <form id="form1" autocomplete="off">
+                    <div class="form_sub_one">
+                        <div>
+                            <label class="label">
+                                Add this food your list !
+                            </label>
+                        </div>
+                        <div><input name="food" type="text" /></div>
+                        <div class="select">
+                            <select id="select-opt" class="drop-down">
+                                <option value="default">
+                                    Select food type
+                                </option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Snack">Snack</option>
+                                <option value="Dinner">Dinner</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="submit" class="submit_button">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </div>
-        <!-- toggle info  -->
-        <p class="toggle_info" id="info_para">
-            Just enter the name of you food select the type of food and route to
-            another page to pick you food from your list
-        </p>
 
-        <!-- form 1 to add items to out list  -->
+            <!-- form 2 to load items from our lists breakFastLi -->
 
-        <div class="sub-two">
-            <form id="form1" autocomplete="off">
-                <div class="form_sub_one">
-                    <div><label>Add this food to your list</label></div>
-                    <div><input name="food" type="text" /></div>
+            <div class="form_sub_two">
+                <form id="form2" class="form2">
+                    <div class="label">Check your food list !</div>
                     <div class="select">
-                        <select id="select-opt" class="drop-down">
-                            <option value="default">
-                                - Select food type -
-                            </option>
+                        <select id="select-opt2" class="drop-down">
+                            <option value="default">Display list</option>
                             <option value="Breakfast">Breakfast</option>
                             <option value="Lunch">Lunch</option>
                             <option value="Snack">Snack</option>
@@ -60,62 +95,44 @@
                         </select>
                     </div>
                     <div>
-                        <button type="submit" class="submit_button">add</button>
+                        <button
+                            type="submit"
+                            value="Load List !"
+                            class="submit_button"
+                        >
+                            display
+                        </button>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
 
-        <!-- form 2 to load items from our lists breakFastLi -->
+            <!-- here lists will be rendered and outputted -->
 
-        <div class="form_sub_two">
-            <form id="form2" class="form2">
-                <div>Check your food list !</div>
-                <div class="select">
-                    <select id="select-opt2" class="drop-down">
-                        <option value="default">- Display list -</option>
-                        <option value="Breakfast">Breakfast</option>
-                        <option value="Lunch">Lunch</option>
-                        <option value="Snack">Snack</option>
-                        <option value="Dinner">Dinner</option>
-                    </select>
+            <div class="mid-two">
+                <div>
+                    <ul id="breakFastLi" class="breakFastLi">
+                        <label class="label">BreakFast List:</label>
+                    </ul>
                 </div>
                 <div>
-                    <button
-                        type="submit"
-                        value="Load List !"
-                        class="submit_button"
-                    >
-                        display
-                    </button>
+                    <ul id="lunchLi" class="lunchLi">
+                        <h4 class="label">Lunch List:</h4>
+                    </ul>
                 </div>
-            </form>
-        </div>
-
-        <!-- list where our lists will be rendered and outputted -->
-
-        <div class="mid-two">
-            <div>
-                <ul id="breakFastLi" class="breakFastLi">
-                    <h3>BreakFast List:</h3>
-                </ul>
-            </div>
-            <div>
-                <ul id="lunchLi" class="lunchLi">
-                    <h3>Lunch List:</h3>
-                </ul>
-            </div>
-            <div>
-                <ul id="snackLi" class="snackLi">
-                    <h3>Snack List:</h3>
-                </ul>
-            </div>
-            <div>
-                <ul id="dinnerLi" class="dinnerLi">
-                    <h3>Dinner List:</h3>
-                </ul>
+                <div>
+                    <ul id="snackLi" class="snackLi">
+                        <h4 class="label">Snack List:</h4>
+                    </ul>
+                </div>
+                <div>
+                    <ul id="dinnerLi" class="dinnerLi">
+                        <h4 class="label">Dinner List:</h4>
+                    </ul>
+                </div>
             </div>
         </div>
+
+        <div class="background"></div>
 
         <!-- backdrop -->
 

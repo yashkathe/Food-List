@@ -1,7 +1,6 @@
 /* overwriting default styles  */
 body {
     margin: 0;
-    background-color: rgba(111, 179, 184, 0.5);
 }
 
 ul {
@@ -43,20 +42,27 @@ select {
     text-align: center;
 }
 
-h3{
+h3 {
     margin: 0px;
 }
 
 /* background */
-/* .background{
-    background: url("./spices.jpg") center/cover;
-    filter: grayscale(40%);
-    filter: blur(2px);
-    width: 100vw;
+
+.background {
+    background: url(./asset/spices2.jpg);
+    background-size: cover;
     height: 100vh;
+    width: 100vw;
+    z-index: -100;
     position: fixed;
-    z-index: -10;
-} */
+    left: 0;
+    top: 0;
+}
+
+.wrap_div {
+    background-color: rgba(34, 40, 49, 0.6);
+    min-height: 100vh;
+}
 
 /* header styles */
 
@@ -70,10 +76,11 @@ h3{
     top: 0;
     width: 100%;
     height: 75px;
-    z-index: 10;
-    background-color: rgb(56, 128, 135);
-    color: rgb(255, 255, 240);
+    z-index: 9;
+    background-color: rgb(34, 40, 49);
+    color:rgb(187, 222, 251) ;
     font-size: 18px;
+    font-size: 20px;
 }
 
 .title {
@@ -106,8 +113,8 @@ h3{
     display: none;
     position: fixed;
     bottom: 0;
-    color: rgb(255, 255, 240);
-    background-color: #a9927d;
+    background-color: rgb(34, 40, 49);
+    color:rgb(187, 222, 251) ;
     padding: 14px 10px;
     width: auto;
     height: auto;
@@ -129,8 +136,31 @@ h3{
 /* drop down for select tag style  */
 
 .drop-down {
-    background: rgba(56, 128, 135, 0.8);
-    padding: 7px 8px;
+    background: rgb(34, 40, 49);
+    color:rgb(187, 222, 251) ;
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
+    padding:10px 20px;
+}
+
+/* submit button */
+
+.submit_button {
+    background: rgb(34, 40, 49);
+    color:rgb(187, 222, 251) ;
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    padding: 5px 8px;
+    font-family: "Noto Sans JP", sans-serif;
+    border-radius: 30%;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* label */
+.label {
+    font-size: 21px;
+    color:whitesmoke;
+    font-family: "Merriweather", serif;
+    font-weight: bold;
 }
 
 /* form with adds items to list */
@@ -141,9 +171,8 @@ h3{
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 50px 0px;
     border-bottom: 2px solid black;
-    margin-top: 80px;
+    padding-top: 130px;
 }
 
 .sub-two div {
@@ -165,19 +194,13 @@ h3{
 }
 
 .mid-two {
-    z-index: 1;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-}
-
-.submit_button {
-    border: 1px solid rgba(0, 0, 0, 0.7);
-    padding: 0px 8px;
-    background-color: rgba(56, 128, 135, 1);
-    font-family: "Noto Sans JP", sans-serif;
-    color: rgb(255, 255, 240);
+    color: white;
+    /* background-color: rgba(0,0,0,0.5); */
 }
 
 /* display list items form */
@@ -191,6 +214,7 @@ h3{
     padding: 50px 0px;
     border-bottom: 2px solid black;
     font-family: "Merriweather", serif;
+    /* background-color: rgba(0,0,0,0.5); */
 }
 
 .form2 div {
@@ -198,17 +222,32 @@ h3{
 }
 
 /* display list form  */
-.innerList{
- padding: 1rem 0;
+.innerList {
+    padding: 1rem 0;
 }
 
-.innerList button{
+.innerList button {
     margin-left: 1rem;
     box-sizing: border-box;
     border: 1px solid rgba(0, 0, 0, 0.7);
-    background-color: rgba(56, 128, 135, 0.5);
     font-family: "Noto Sans JP", sans-serif;
-    color: rgb(255, 255, 240);
+    color:#F05454
+}
+
+/* styles for card  */
+.indv {
+    border: 2px solid rgb(34, 40, 49);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    padding: 10px 10px;
+    margin: 1rem 0rem;
+    font-size: 21px;
+    background-color: rgba(34, 40, 49, 0.8);
+    font-family: 'Rubik', sans-serif;
+    color:rgb(187, 222, 251) ;
 }
 
 /* css for rendering list on form 2 */
@@ -252,7 +291,7 @@ h3{
 }
 
 /* styles for backdrop and modal  */
-.backdrop{
+.backdrop {
     display: none;
     position: fixed;
     left: 0;
@@ -260,29 +299,27 @@ h3{
     height: 100vh;
     width: 100vw;
     z-index: 100;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
-.backdrop__visible{
+.backdrop__visible {
     display: flex;
 }
 
-.modal1{
+.modal1 {
     display: none;
     padding: 1rem;
     background-color: rgb(56, 128, 135);
     position: fixed;
     left: 25%;
     top: 40%;
-    flex-direction:column ;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     border: 1px solid black;
     z-index: 110;
 }
 
-.modal1__visible{
+.modal1__visible {
     display: flex;
 }
-
-

@@ -83,6 +83,7 @@ dinnerList = [...dinnerLiLocal];
 function loopThroughLocalStorage() {
     for (i = 0; i < breakfastList.length; i++) {
         const li = document.createElement("li");
+        li.className = "indv"
         const button = document.createElement("button");
         button.id = "delete_button";
         li.classList.add("innerList");
@@ -99,6 +100,7 @@ function loopThroughLocalStorage() {
     for (i = 0; i < lunchList.length; i++) {
         const li = document.createElement("li");
         const button = document.createElement("button");
+        li.className = "indv"
         button.id = "delete_button";
         li.classList.add("innerList");
         lunchName = lunchList[i].name;
@@ -113,6 +115,7 @@ function loopThroughLocalStorage() {
 
     for (i = 0; i < snackList.length; i++) {
         const li = document.createElement("li");
+        li.className = "indv"
         const button = document.createElement("button");
         button.id = "delete_button";
         li.classList.add("innerList");
@@ -128,6 +131,7 @@ function loopThroughLocalStorage() {
 
     for (i = 0; i < dinnerList.length; i++) {
         const li = document.createElement("li");
+        li.className = "indv"
         const button = document.createElement("button");
         button.id = "delete_button";
         li.classList.add("innerList");
@@ -170,6 +174,7 @@ form1.onsubmit = (event) => {
 
     // conditionally entering values
     const li = document.createElement("li");
+    li.className = "indv"
     const button = document.createElement("button");
     button.id = "delete_button";
     li.classList.add("innerList");
@@ -223,6 +228,7 @@ form1.onsubmit = (event) => {
 //delete function handler
 
 function deleteFoodItemHandler() {
+
     breakFastLi.addEventListener("click", (event) => {
         const toDeleteElement = event.target.closest("li");
         toDeleteElement.remove();
@@ -321,7 +327,8 @@ function clearInput2() {
 form2.onsubmit = (event) => {
     event.preventDefault();
 
-    function removeAllStyles(){
+    //remove all lists
+    function removeAllStyles() {
         breakFastLi.classList.remove("breakFastLi_visible");
         lunchLi.classList.remove("lunchLi_visible");
         snackLi.classList.remove("snackLi_visible");
@@ -331,7 +338,7 @@ form2.onsubmit = (event) => {
     if (typeOfFood2.value === "Breakfast") {
         if (breakfastList.length === 0) {
             popModal("Error !", `Your Breakfast List is empty`);
-            removeAllStyles()
+            removeAllStyles();
             return;
         } else {
             breakFastLi.classList.add("breakFastLi_visible");
@@ -342,7 +349,7 @@ form2.onsubmit = (event) => {
     } else if (typeOfFood2.value === "Lunch") {
         if (lunchList.length === 0) {
             popModal("Error !", `Your Lunch List is empty`);
-            removeAllStyles()
+            removeAllStyles();
             return;
         } else {
             lunchLi.classList.add("lunchLi_visible");
@@ -353,7 +360,7 @@ form2.onsubmit = (event) => {
     } else if (typeOfFood2.value === "Snack") {
         if (snackList.length === 0) {
             popModal("Error !", `Your Snack List is empty`);
-            removeAllStyles()
+            removeAllStyles();
             return;
         } else {
             snackLi.classList.add("snackLi_visible");
@@ -364,7 +371,7 @@ form2.onsubmit = (event) => {
     } else if (typeOfFood2.value === "Dinner") {
         if (dinnerList.length === 0) {
             popModal("Error !", `Your Dinner List is empty`);
-            removeAllStyles()
+            removeAllStyles();
             return;
         } else {
             dinnerLi.classList.add("dinnerLi_visible");
@@ -374,10 +381,12 @@ form2.onsubmit = (event) => {
         }
     } else if (typeOfFood2.value === "default") {
         popModal("Error !", `Cant load list , enter food type`);
-        removeAllStyles()
+        removeAllStyles();
     } else {
         alert("You food list is empty");
     }
 
     clearInput2();
 };
+
+
