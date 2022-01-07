@@ -24,5 +24,5 @@
 ![ Phone View ](https://raw.githubusercontent.com/yashkathe/food-list/master/asset/Step2.gif "Load")
 ## Feedback
 
-If you have any feedback, please reach out to me at yashkathe123@gmail.com
+If you have any feedback, please reach out to me at katheyash@yahoo.com
 
